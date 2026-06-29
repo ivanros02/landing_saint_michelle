@@ -1,0 +1,321 @@
+---
+const crisisLines = [
+  {
+    country: 'Argentina',
+    name: 'Centro de Asistencia al Suicida',
+    number: '135',
+    hours: '24 hs · gratuito',
+  },
+  {
+    country: 'Argentina',
+    name: 'Salud Mental — SAME',
+    number: '107',
+    hours: '24 hs · gratuito',
+  },
+  {
+    country: 'Internacional',
+    name: 'Crisis Text Line',
+    number: 'Enviar "HOLA" al 85258',
+    hours: '24 hs',
+  },
+];
+
+const navLinks = [
+  { label: 'Inicio', href: '#inicio' },
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Equipo', href: '#equipo' },
+  { label: 'Contacto', href: '#contacto' },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer role="contentinfo" class="bg-slate-800 text-slate-300">
+
+  <!-- Emergency banner -->
+  <div
+    class="bg-amber-50 border-b-4 border-amber-400"
+    role="complementary"
+    aria-labelledby="crisis-heading"
+  >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+      <div class="flex flex-col md:flex-row gap-6 md:items-center">
+
+        <!-- Icon + heading -->
+        <div class="flex items-start gap-3 shrink-0">
+          <div
+            class="w-10 h-10 rounded-xl bg-amber-400 flex items-center justify-center shrink-0 mt-0.5"
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+            >
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8a16 16 0 0 0 7.91 7.91l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17v-.08Z" />
+            </svg>
+          </div>
+          <div>
+            <h2
+              id="crisis-heading"
+              class="text-base font-bold text-amber-900 leading-snug"
+            >
+              ¿Estás en crisis o pensando en hacerte daño?
+            </h2>
+            <p class="text-sm text-amber-800 mt-0.5">
+              Buscá ayuda ahora mismo. Estas líneas son gratuitas y confidenciales.
+            </p>
+          </div>
+        </div>
+
+        <!-- Crisis lines -->
+        <div
+          class="flex flex-col sm:flex-row flex-wrap gap-3 md:ml-auto"
+          role="list"
+          aria-label="Líneas de crisis disponibles"
+        >
+          {crisisLines.map((line) => (
+            <div
+              role="listitem"
+              class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-amber-200 shadow-sm"
+            >
+              <div>
+                <p class="text-xs text-amber-700 font-semibold uppercase tracking-wide leading-none mb-0.5">
+                  {line.name}
+                </p>
+                <a
+                  href={`tel:${line.number.replace(/\D/g, '')}`}
+                  class="text-lg font-bold text-amber-900 hover:text-amber-700 transition-colors leading-none"
+                  aria-label={`Llamar a ${line.name}: ${line.number}`}
+                >
+                  {line.number}
+                </a>
+                <p class="text-[11px] text-slate-400 mt-0.5">{line.hours}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main footer -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Brand column -->
+      <div class="lg:col-span-1">
+        <a href="/" aria-label="Saint Michelle — Ir al inicio" class="flex items-center gap-2.5 mb-4">
+          <div class="w-9 h-9 rounded-xl bg-sage-800 flex items-center justify-center shrink-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-sage-300"
+              aria-hidden="true"
+            >
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+          </div>
+          <div>
+            <span class="block text-sm font-semibold text-white">Saint Michelle</span>
+            <span class="block text-[11px] text-sage-400 tracking-wide uppercase">Clínica Psiquiátrica</span>
+          </div>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Cuidamos tu salud mental con profesionalismo, empatía y los más altos estándares clínicos.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h3 class="text-xs font-semibold text-slate-200 tracking-widest uppercase mb-4">
+          Navegación
+        </h3>
+        <nav aria-label="Navegación del pie de página">
+          <ul class="space-y-2">
+            {navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-slate-400 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div id="contacto">
+        <h3 class="text-xs font-semibold text-slate-200 tracking-widest uppercase mb-4">
+          Contacto
+        </h3>
+        <address class="not-italic space-y-3">
+          <a
+            href="tel:+541148000000"
+            class="flex items-start gap-2.5 text-sm text-slate-400 hover:text-white transition-colors group"
+            aria-label="Llamar a Saint Michelle al +54 11 4800-0000"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 text-sage-400 mt-0.5 shrink-0 group-hover:text-sage-300 transition-colors"
+              aria-hidden="true"
+            >
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8a16 16 0 0 0 7.91 7.91l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17v-.08Z" />
+            </svg>
+            +54 11 4800-0000
+          </a>
+          <a
+            href="mailto:turnos@saintmichelle.com.ar"
+            class="flex items-start gap-2.5 text-sm text-slate-400 hover:text-white transition-colors group"
+            aria-label="Enviar email a turnos@saintmichelle.com.ar"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 text-sage-400 mt-0.5 shrink-0 group-hover:text-sage-300 transition-colors"
+              aria-hidden="true"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            turnos@saintmichelle.com.ar
+          </a>
+          <p class="flex items-start gap-2.5 text-sm text-slate-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 text-sage-400 mt-0.5 shrink-0"
+              aria-hidden="true"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>
+              Av. Santa Fe 1234, Piso 3<br />
+              Buenos Aires, CABA
+            </span>
+          </p>
+        </address>
+      </div>
+
+      <!-- Hours -->
+      <div>
+        <h3 class="text-xs font-semibold text-slate-200 tracking-widest uppercase mb-4">
+          Horarios
+        </h3>
+        <dl class="space-y-2 text-sm">
+          <div class="flex justify-between">
+            <dt class="text-slate-400">Lunes a Viernes</dt>
+            <dd class="text-white font-medium">09:00 – 19:00</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-slate-400">Sábados</dt>
+            <dd class="text-white font-medium">09:00 – 13:00</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-slate-400">Domingos</dt>
+            <dd class="text-slate-500">Cerrado</dd>
+          </div>
+        </dl>
+
+        <div class="mt-6 pt-5 border-t border-slate-700">
+          <p class="text-xs text-slate-500 mb-3">Seguinos en redes</p>
+          <div class="flex gap-3">
+            <a
+              href="#"
+              class="w-8 h-8 rounded-lg bg-slate-700 hover:bg-sage-700 flex items-center justify-center transition-colors"
+              aria-label="Seguir a Saint Michelle en Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4 text-slate-300"
+                aria-hidden="true"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="w-8 h-8 rounded-lg bg-slate-700 hover:bg-cerulean-700 flex items-center justify-center transition-colors"
+              aria-label="Seguir a Saint Michelle en LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4 text-slate-300"
+                aria-hidden="true"
+              >
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6Z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-slate-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-slate-500">
+        © {currentYear} Saint Michelle Clínica Psiquiátrica. Todos los derechos reservados.
+      </p>
+      <div class="flex gap-5">
+        <a href="#" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+          Política de privacidad
+        </a>
+        <a href="#" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+          Términos de uso
+        </a>
+      </div>
+    </div>
+  </div>
+
+</footer>

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "tailwind-responsive-design": {
+      "source": "thebushidocollective/han",
+      "sourceType": "github",
+      "skillPath": "plugins/tools/tailwind/skills/tailwind-responsive-design/SKILL.md",
+      "computedHash": "af0bb020cb20b61a1268a04d899573a3a2000c1d32bcc9ac6353f7b30c52d7c6"
+    }
+  }
+}

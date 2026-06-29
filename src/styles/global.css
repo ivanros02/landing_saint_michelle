@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Warm white backgrounds */
+  --color-warm-50: #faf9f6;
+  --color-warm-100: #f4f2ec;
+  --color-warm-200: #e8e3d8;
+
+  /* Sage green — calm, growth */
+  --color-sage-50:  #f2f7f0;
+  --color-sage-100: #e4eee1;
+  --color-sage-200: #c8dcc3;
+  --color-sage-300: #a3c39b;
+  --color-sage-400: #7da876;
+  --color-sage-500: #5e8e57;
+  --color-sage-600: #4a7244;
+  --color-sage-700: #3b5b37;
+  --color-sage-800: #30492d;
+  --color-sage-900: #283d26;
+
+  /* Pale cerulean — trust, clarity */
+  --color-cerulean-50:  #eff6f9;
+  --color-cerulean-100: #d9edf4;
+  --color-cerulean-200: #b4dae9;
+  --color-cerulean-300: #82c0d8;
+  --color-cerulean-400: #4da3c2;
+  --color-cerulean-500: #3189a8;
+  --color-cerulean-600: #296e8d;
+  --color-cerulean-700: #245973;
+  --color-cerulean-800: #204b60;
+  --color-cerulean-900: #1e3f51;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-warm-50);
+    color: theme(colors.slate.700);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sage-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,194 @@
+---
+const services = [
+  {
+    id: 'psiquiatria',
+    title: 'Psiquiatría',
+    description:
+      'Diagnóstico y tratamiento médico de trastornos mentales, emocionales y del comportamiento. Medicación supervisada y seguimiento personalizado.',
+    tags: ['Ansiedad', 'Depresión', 'TOC', 'Trastorno bipolar', 'TDAH'],
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop&q=80',
+    imageAlt: 'Consulta psiquiátrica en un ambiente cálido y profesional',
+    icon: `<path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z"/>`,
+    iconViewBox: '0 0 24 24',
+    iconFill: true,
+    color: 'sage',
+  },
+  {
+    id: 'terapia',
+    title: 'Terapia Psicológica',
+    description:
+      'Psicoterapia individual, de pareja y familiar con enfoques basados en evidencia: cognitivo-conductual, sistémico y psicodinámico.',
+    tags: ['Trauma', 'Duelo', 'Autoestima', 'Relaciones', 'Estrés'],
+    image: 'https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=600&h=400&fit=crop&q=80',
+    imageAlt: 'Sesión de terapia psicológica en un espacio tranquilo y contenedor',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>`,
+    iconViewBox: '0 0 24 24',
+    iconFill: false,
+    color: 'cerulean',
+  },
+  {
+    id: 'evaluaciones',
+    title: 'Evaluaciones Diagnósticas',
+    description:
+      'Evaluaciones neuropsicológicas y psicodiagnósticas completas para adultos, adolescentes y niños. Informes detallados para seguimiento clínico.',
+    tags: ['Neuropsicología', 'Psicodiagnóstico', 'TEA', 'TDAH', 'Orientación'],
+    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&q=80',
+    imageAlt: 'Profesional realizando una evaluación diagnóstica con materiales especializados',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/>`,
+    iconViewBox: '0 0 24 24',
+    iconFill: false,
+    color: 'warm',
+  },
+];
+
+const colorMap: Record<string, { bg: string; icon: string; badge: string; link: string }> = {
+  sage: {
+    bg: 'bg-sage-50',
+    icon: 'bg-sage-100 text-sage-600',
+    badge: 'bg-sage-100 text-sage-700',
+    link: 'text-sage-600 hover:text-sage-700',
+  },
+  cerulean: {
+    bg: 'bg-cerulean-50',
+    icon: 'bg-cerulean-100 text-cerulean-600',
+    badge: 'bg-cerulean-100 text-cerulean-700',
+    link: 'text-cerulean-600 hover:text-cerulean-700',
+  },
+  warm: {
+    bg: 'bg-warm-100',
+    icon: 'bg-warm-200 text-slate-600',
+    badge: 'bg-warm-200 text-slate-700',
+    link: 'text-slate-600 hover:text-slate-800',
+  },
+};
+---
+
+<section
+  id="servicios"
+  aria-labelledby="services-heading"
+  class="py-16 md:py-24 bg-warm-50"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-12 md:mb-16">
+      <span class="inline-block text-xs font-semibold text-sage-600 tracking-widest uppercase mb-3">
+        Nuestros Servicios
+      </span>
+      <h2
+        id="services-heading"
+        class="text-3xl sm:text-4xl font-bold text-slate-800 tracking-tight mb-4"
+      >
+        Un abordaje integral de tu salud mental
+      </h2>
+      <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+        Cada área trabaja de forma coordinada para brindarte una atención completa,
+        personalizada y basada en evidencia científica.
+      </p>
+    </div>
+
+    <!-- Service cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {services.map((service) => {
+        const colors = colorMap[service.color];
+        return (
+          <article
+            id={service.id}
+            aria-labelledby={`${service.id}-title`}
+            class={`group flex flex-col rounded-2xl border border-warm-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow`}
+          >
+            <!-- Card image -->
+            <div class="relative h-44 overflow-hidden shrink-0">
+              <img
+                src={service.image}
+                alt={service.imageAlt}
+                width="600"
+                height="400"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <!-- Color overlay -->
+              <div class={`absolute inset-0 ${colors.bg} opacity-20`} aria-hidden="true"></div>
+            </div>
+
+            <!-- Card content -->
+            <div class="flex flex-col flex-1 p-6">
+              <!-- Icon + title -->
+              <div class="flex items-start gap-3 mb-3">
+                <div class={`w-10 h-10 rounded-xl ${colors.icon} flex items-center justify-center shrink-0 mt-0.5`}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox={service.iconViewBox}
+                    fill={service.iconFill ? 'currentColor' : 'none'}
+                    stroke={service.iconFill ? 'none' : 'currentColor'}
+                    stroke-width="1.75"
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    set:html={service.icon}
+                  />
+                </div>
+                <h3
+                  id={`${service.id}-title`}
+                  class="text-lg font-semibold text-slate-800 leading-snug"
+                >
+                  {service.title}
+                </h3>
+              </div>
+
+              <p class="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+                {service.description}
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-1.5 mb-5" role="list" aria-label={`Áreas de ${service.title}`}>
+                {service.tags.map((tag) => (
+                  <span
+                    role="listitem"
+                    class={`text-xs font-medium px-2.5 py-1 rounded-full ${colors.badge}`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Link -->
+              <a
+                href="#contacto"
+                class={`inline-flex items-center gap-1.5 text-sm font-semibold ${colors.link} transition-colors group/link`}
+                aria-label={`Consultar sobre ${service.title} en Saint Michelle`}
+              >
+                Consultar sobre este servicio
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- Bottom note -->
+    <p class="text-center text-sm text-slate-400 mt-10">
+      ¿No sabés por dónde empezar?
+      <a
+        href="#contacto"
+        class="text-sage-600 hover:text-sage-700 font-medium underline underline-offset-2"
+        aria-label="Contactar con nuestro equipo para orientación"
+      >
+        Nuestro equipo te orienta sin costo.
+      </a>
+    </p>
+  </div>
+</section>

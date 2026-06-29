@@ -1,0 +1,178 @@
+---
+const stats = [
+  { value: '+15', label: 'años de trayectoria', icon: 'clock' },
+  { value: '+1.200', label: 'pacientes acompañados', icon: 'users' },
+  { value: '100%', label: 'matriculados y certificados', icon: 'shield' },
+];
+
+const credentials = [
+  'Matriculados en el Ministerio de Salud de la Nación',
+  'Membresía en la Asociación de Psiquiatras Argentinos (APSA)',
+  'Supervisión clínica semanal entre pares',
+  'Formación y actualización continua internacional',
+  'Código de ética y confidencialidad estrictos',
+  'Enfoque multidisciplinario coordinado',
+];
+
+const teamMembers = [
+  {
+    name: 'Dra. Ana Sofía Méndez',
+    role: 'Directora Médica — Psiquiatra',
+    credentials: 'MN 98.234 · UBA · Hospital Italiano',
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&q=80',
+    imageAlt: 'Dra. Ana Sofía Méndez, Directora Médica y Psiquiatra de Saint Michelle',
+  },
+  {
+    name: 'Lic. Martín Guerrero',
+    role: 'Psicólogo Clínico',
+    credentials: 'MP 45.678 · UNC · Especialista en TCC',
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&q=80',
+    imageAlt: 'Lic. Martín Guerrero, Psicólogo Clínico de Saint Michelle',
+  },
+  {
+    name: 'Dra. Laura Vásquez',
+    role: 'Neuropsicóloga',
+    credentials: 'MP 61.102 · USAL · Evaluaciones diagnósticas',
+    image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop&q=80',
+    imageAlt: 'Dra. Laura Vásquez, Neuropsicóloga de Saint Michelle',
+  },
+];
+---
+
+<section
+  id="equipo"
+  aria-labelledby="team-heading"
+  class="py-16 md:py-24 bg-white"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-12 md:mb-16">
+      <span class="inline-block text-xs font-semibold text-cerulean-600 tracking-widest uppercase mb-3">
+        Nuestro Equipo
+      </span>
+      <h2
+        id="team-heading"
+        class="text-3xl sm:text-4xl font-bold text-slate-800 tracking-tight mb-4"
+      >
+        Profesionales en quienes podés confiar
+      </h2>
+      <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+        Cada integrante de nuestro equipo cumple los más altos estándares de formación,
+        habilitación profesional y ética médica.
+      </p>
+    </div>
+
+    <!-- Stats row -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+      {stats.map((stat) => (
+        <div class="bg-warm-50 rounded-2xl p-6 text-center border border-warm-200">
+          <p class="text-4xl font-bold text-sage-600 mb-1">{stat.value}</p>
+          <p class="text-sm text-slate-500 font-medium">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Team members -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {teamMembers.map((member) => (
+        <article
+          aria-label={`Perfil de ${member.name}`}
+          class="group bg-warm-50 rounded-2xl border border-warm-200 overflow-hidden hover:shadow-md transition-shadow"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={member.image}
+              alt={member.imageAlt}
+              width="400"
+              height="400"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-t from-slate-900/30 to-transparent"
+              aria-hidden="true"
+            ></div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-slate-800 leading-snug">{member.name}</h3>
+            <p class="text-sm text-sage-600 font-medium mt-0.5 mb-2">{member.role}</p>
+            <p class="text-xs text-slate-400">{member.credentials}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Credentials grid -->
+    <div class="bg-linear-to-br from-cerulean-50 to-sage-50 rounded-2xl p-8 md:p-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+        <!-- Left: Text -->
+        <div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">
+            Compromiso ético y actualizacion constante
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6">
+            Creemos que la calidad asistencial depende de la formación continua.
+            Por eso nuestros profesionales participan en congresos, supervisiones y
+            formaciones de posgrado de forma permanente.
+          </p>
+          <ul class="space-y-2.5" role="list" aria-label="Credenciales y compromisos del equipo">
+            {credentials.map((cred) => (
+              <li role="listitem" class="flex items-start gap-2.5 text-sm text-slate-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 text-sage-500 mt-0.5 shrink-0"
+                  aria-hidden="true"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <path d="m9 11 3 3L22 4" />
+                </svg>
+                {cred}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="flex justify-center">
+          <div class="relative max-w-xs w-full">
+            <img
+              src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&h=500&fit=crop&q=80"
+              alt="Equipo de profesionales de Saint Michelle en una reunión de supervisión clínica"
+              width="500"
+              height="500"
+              loading="lazy"
+              decoding="async"
+              class="w-full rounded-2xl shadow-md object-cover aspect-square"
+            />
+            <!-- Verification badge -->
+            <div
+              class="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md border border-warm-200 whitespace-nowrap"
+              aria-hidden="true"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-4 h-4 text-cerulean-500"
+              >
+                <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-xs font-semibold text-slate-700">Equipo verificado y matriculado</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
