@@ -1,0 +1,43 @@
+name: Deploy Astro to GitHub Pages
+
+on:
+  # Se ejecuta cada vez que haces un push a la rama principal
+  push:
+    branches: [ main ] # Cambia a 'master' si tu rama principal se llama así
+  workflow_dispatch:
+
+# Permisos necesarios para publicar en GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout de tu repositorio
+        uses: actions/checkout@v4
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Instalar dependencias
+        run: pnpm install # Cambia a 'pnpm install' o 'yarn install' si usas otro gestor
+      - name: Construir el sitio de Astro
+        run: pnpm run build
+      - name: Subir artefactos de GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # Esta es la carpeta de salida por defecto de Astro
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
