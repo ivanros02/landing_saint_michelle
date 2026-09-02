@@ -18,18 +18,23 @@ jobs:
     steps:
       - name: Checkout de tu repositorio
         uses: actions/checkout@v4
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
       - name: Instalar dependencias
-        run: pnpm install # Cambia a 'pnpm install' o 'yarn install' si usas otro gestor
+        run: pnpm install
       - name: Construir el sitio de Astro
         run: pnpm run build
       - name: Subir artefactos de GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # Esta es la carpeta de salida por defecto de Astro
+          path: ./dist
 
   deploy:
     needs: build
